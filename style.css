@@ -39,6 +39,25 @@ body {
     box-sizing: border-box;
 }
 
+/* Styles for the radio buttons */
+.form-container input[type="radio"] {
+    margin-right: 5px;
+}
+
+/* Styles for the textarea */
+.form-container textarea {
+    font-family: 'Arial', sans-serif; /* You can change this to any font you prefer */
+    font-size: 16px; /* Adjust the font size as needed */
+    color: #333; /* Font color */
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical; /* Allow vertical resizing */
+}
+
+
 .form-container .button-container {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Create two columns */
@@ -103,4 +122,26 @@ body {
 
 .progress-indicators div.active {
     background-color: #4CAF50;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Apply the animation to each stage of the form */
+#stage1, #stage2, #stage3, #stage4 {
+    animation: fadeIn 0.7s ease-in-out;
+}
+/* Initially hide the stages */
+#stage1, #stage2, #stage3, #stage4  {
+    display: none;
+    opacity: 0;
+}
+
+/* When the stage has the 'active' class, it fades in */
+#stage1.active, #stage2.active, #stage3.active, #stage4.active {
+    display: block;
+    opacity: 1;
 }

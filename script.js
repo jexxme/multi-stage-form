@@ -1,20 +1,36 @@
+function goToStage1() {
+    document.getElementById('stage1').classList.add('active');
+    document.getElementById('stage2').classList.remove('active');
+    document.getElementById('stage3').classList.remove('active');
+    document.getElementById('stage4').classList.remove('active');
+    updateProgressIndicator(0);
+}
+
+
 function goToStage2() {
-    document.getElementById('stage1').style.display = 'none';
-    document.getElementById('stage2').style.display = 'block';
-    document.getElementById('backButton').style.display = 'inline-block'; // Show the back button
-    document.getElementById('nextButton').onclick = finishForm; // Change the event to finish form
-    document.getElementById('nextButton').textContent = 'Finish Now'; // Change the button text to 'Finish Now'
+    document.getElementById('stage1').classList.remove('active');
+    document.getElementById('stage2').classList.add('active');
+    document.getElementById('stage3').classList.remove('active');
+    document.getElementById('stage4').classList.remove('active');
     updateProgressIndicator(1);
 }
 
-function goToStage1() {
-    document.getElementById('stage1').style.display = 'block';
-    document.getElementById('stage2').style.display = 'none';
-    document.getElementById('backButton').style.display = 'none'; // Hide the back button
-    document.getElementById('nextButton').onclick = goToStage2; // Change the event back to go to stage 2
-    document.getElementById('nextButton').textContent = 'Next'; // Change the button text back to 'Next'
-    updateProgressIndicator(0);
+function goToStage3() {
+    document.getElementById('stage1').classList.remove('active');
+    document.getElementById('stage2').classList.remove('active');
+    document.getElementById('stage3').classList.add('active');
+    document.getElementById('stage4').classList.remove('active');
+    updateProgressIndicator(2);
 }
+
+function goToStage4() {
+    document.getElementById('stage1').classList.remove('active');
+    document.getElementById('stage2').classList.remove('active');
+    document.getElementById('stage3').classList.remove('active');
+    document.getElementById('stage4').classList.add('active');
+    updateProgressIndicator(3);
+}
+
 
 function finishForm() {
     alert('Form Submitted!');
