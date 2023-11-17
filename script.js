@@ -31,11 +31,11 @@ function goToStage4() {
     updateProgressIndicator(3);
 }
 function finishForm() {
-    // Hide all stages and buttons
+    // Hide all stages and buttons, but not the entire form
     document.querySelectorAll('.form-stage').forEach(stage => stage.classList.remove('active'));
     document.querySelector('.button-container').style.display = 'none';
 
-    // Show the loading animation
+    // Show the loading animation with fade-in
     const loadingAnimation = document.getElementById('loadingAnimation');
     loadingAnimation.classList.add('active');
 
@@ -44,12 +44,11 @@ function finishForm() {
         // Hide the loading animation
         loadingAnimation.classList.remove('active');
 
-        // Show the Thank You stage
+        // Show the Thank You stage with fade-in
         const thankYouStage = document.getElementById('thankYouStage');
         thankYouStage.classList.add('active');
-    }, 2000);
+    }, 2000); // 2000 milliseconds = 2 seconds
 }
-
 
 
 function updateProgressIndicator(stage) {
