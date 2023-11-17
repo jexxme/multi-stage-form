@@ -1,15 +1,11 @@
 function goToStage1() {
-    // get the element with the id 'stage1' and add the class 'active'
     document.getElementById('stage1').classList.add('active');
-    // get the element with the id 'stage2' and remove the class 'active'
     document.getElementById('stage2').classList.remove('active');
-    // get the element with the id 'stage3' and remove the class 'active'
     document.getElementById('stage3').classList.remove('active');
-    // get the element with the id 'stage4' and remove the class 'active'
     document.getElementById('stage4').classList.remove('active');
-    // call the function updateProgressIndicator with the number 0
     updateProgressIndicator(0);
 }
+
 
 function goToStage2() {
     document.getElementById('stage1').classList.remove('active');
@@ -35,50 +31,42 @@ function goToStage4() {
     updateProgressIndicator(3);
 }
 
+
+
 function finishForm() {
+    // Mark the progress indicators as completed
     const progressIndicators = document.querySelector('.progress-indicators');
-    progressIndicators.classList.add('hide-progress');
+    progressIndicators.classList.add('completed');
 
     // Hide all stages and buttons
     document.querySelectorAll('.form-stage').forEach(stage => stage.classList.remove('active'));
     document.querySelector('.button-container').style.display = 'none';
 
-    // Wait for the hiding animation of progress indicators to complete
+    // Show the loading animation
+    const loadingAnimation = document.getElementById('loadingAnimation');
+    loadingAnimation.classList.add('active');
+
+    // Simulate a 2-second submission process
     setTimeout(() => {
-        // Ensure progress indicators are completely hidden
-        progressIndicators.classList.add('hidden');
+        // Hide the loading animation
+        loadingAnimation.classList.remove('active');
 
-        const loadingAnimation = document.getElementById('loadingAnimation');
-        loadingAnimation.classList.add('active');
-
-        // Simulate a 2-second submission process
-        setTimeout(() => {
-            loadingAnimation.classList.remove('active');
-            const thankYouStage = document.getElementById('thankYouStage');
-            thankYouStage.classList.add('active');
-        }, 2000);
-    }, 500);
+        // Show the Thank You stage
+        const thankYouStage = document.getElementById('thankYouStage');
+        thankYouStage.classList.add('active');
+    }, 2000); // Delay for the simulated submission process
 }
 
 
 
 
 function updateProgressIndicator(stage) {
-
-// Find the progress indicator elements
-const indicators = document.querySelectorAll('.progress-indicators div');
-
-// Loop through each indicator element
-indicators.forEach((div, index) => {
-
-// If the element is before the stage we're at, mark it as active
-if (index <= stage) {
-div.classList.add('active');
-} else {
-
-// If the element is after the stage we're at, remove active
-div.classList.remove('active');
+    const indicators = document.querySelectorAll('.progress-indicators div');
+    indicators.forEach((div, index) => {
+        if (index <= stage) {
+            div.classList.add('active');
+        } else {
+            div.classList.remove('active');
+        }
+    });
 }
-});
-}
-

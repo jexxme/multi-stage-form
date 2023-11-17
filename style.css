@@ -14,7 +14,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 250px;
-    
+
 }
 
 .form-container h2 {
@@ -123,6 +123,7 @@ body {
     animation-fill-mode: forwards; /* Keeps the element in the state of the last keyframe when the animation ends */
 }
 
+
 .progress-indicators div {
     height: 15px;
     width: 15px;
@@ -130,6 +131,7 @@ body {
     border-radius: 50%;
     display: inline-block;
     margin: 0 5px;
+    transition: background-color 0.3s ease-in-out; /* Animate the background color change */
 }
 
 .progress-indicators div.active {
@@ -139,13 +141,21 @@ body {
 @keyframes slideUpFadeOut {
     0% {
         opacity: 1;
-        transform: translateY(0);
+        /* transform: translateY(0); */
     }
     100% {
         opacity: 0;
-        transform: translateY(-20px);
+        /* transform: translateY(-20px); */
     }
 }
+
+/* Class for completed progress indicators */
+.progress-indicators.completed div {
+    background-color: #36bb8a; /* Green color */
+    transition: background-color 1s ease-in-out; /* Animate the background color change */
+
+}
+
 
 
 /* Class to trigger the hiding animation */
