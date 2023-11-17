@@ -1,6 +1,5 @@
-/* Base styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     background: #f4f4f4;
     display: flex;
     justify-content: center;
@@ -9,7 +8,6 @@ body {
     margin: 0;
 }
 
-/* Styles for the form container */
 .form-container {
     background: #fff;
     padding: 40px;
@@ -18,7 +16,6 @@ body {
     width: 300px;
 }
 
-/* Styles for the form title */
 .form-container h2 {
     font-size: 24px;
     color: #333;
@@ -26,7 +23,6 @@ body {
     text-align: center;
 }
 
-/* Styles for form labels and inputs */
 .form-container label {
     color: #333;
     margin-bottom: 5px;
@@ -39,28 +35,57 @@ body {
     border-radius: 4px;
     padding: 10px;
     margin-bottom: 20px;
-    width: 100%;
+    width: 100%; /* Full width of the form field */
     box-sizing: border-box;
 }
 
-/* Styles for the 'Next' button */
+.form-container .button-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Create two columns */
+    gap: 10px; /* Space between buttons */
+}
+
+/* This will hide the back button by default and does not reserve space for it */
+.form-container #backButton {
+    display: none; /* Hide the back button initially */
+    grid-column: 1; /* Position the back button in the first column when visible */
+}
+
+/* The next button will always stay in the second column */
+.form-container #nextButton {
+    grid-column: 2; /* Position the next button in the second column */
+}
+
+
 .form-container button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
+    padding: 10px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    width: 30%;
-    ;
-    box-sizing: border-box;
 }
 
-.form-container button:hover {
+/* Next/Finish Now button */
+.form-container button:nth-of-type(2) {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.form-container button:nth-of-type(2):hover {
     background-color: #45a049;
 }
 
-/* Styles for the progress indicators (circles) */
+/* Back button */
+.form-container button:nth-of-type(1) {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.form-container button:nth-of-type(1):hover {
+    background-color: #e4e4e4;
+}
+
+
+/* Progress Indicators */
 .progress-indicators {
     display: flex;
     justify-content: center;
@@ -68,8 +93,8 @@ body {
 }
 
 .progress-indicators div {
-    height: 15px;
-    width: 15px;
+    height: 10px;
+    width: 10px;
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
