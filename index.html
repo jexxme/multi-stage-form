@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staged Login Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="form-container" id="loginForm">
+
+        <!-- Stage 1: Name -->
+        <div id="stage1">
+            <h2>Register:</h2>
+            <div class="form-field">
+                <label for="firstName">Name:</label>
+                <input type="text" id="firstName" name="firstName" placeholder="First name...">
+                <input type="text" id="lastName" name="lastName" placeholder="Last name...">
+                <button type="button" onclick="goToStage2()">Next</button>
+            </div>
+        </div>
+
+        <!-- Stage 2: Email and Birthday (hidden by default) -->
+        <div id="stage2" style="display:none;">
+            <h2>Register:</h2>
+            <div class="form-field">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Email...">
+                <label for="birthday">Birthday:</label>
+                <input type="date" id="birthday" name="birthday">
+                <button type="button" onclick="finishForm()">Finish Now</button>
+            </div>
+        </div>
+
+        <!-- Progress Indicators -->
+        <div class="progress-indicators">
+            <div id="indicator1" class="active"></div>
+            <div id="indicator2"></div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
