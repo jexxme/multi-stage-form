@@ -13,7 +13,7 @@ body {
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 250px;
 }
 
 .form-container h2 {
@@ -39,11 +39,20 @@ body {
     box-sizing: border-box;
 }
 
+/* Specifically target the radio buttons' container for additional spacing */
+.form-container .radio-buttons-container {
+    margin-bottom: 20px;
+}
+
+/* Specifically target the radio buttons' container for additional spacing */
+.form-container .textfield {
+    margin-bottom: 20px;
+}
+
 /* Styles for the radio buttons */
 .form-container input[type="radio"] {
     margin-right: 5px;
 }
-
 /* Styles for the textarea */
 .form-container textarea {
     font-family: 'Arial', sans-serif; /* You can change this to any font you prefer */
@@ -85,12 +94,12 @@ body {
 
 /* Next/Finish Now button */
 .form-container button:nth-of-type(2) {
-    background-color: #4CAF50;
+    background-color: #36bb8a;
     color: white;
 }
 
 .form-container button:nth-of-type(2):hover {
-    background-color: #45a049;
+    background-color: #31a47a;
 }
 
 /* Back button */
@@ -112,16 +121,16 @@ body {
 }
 
 .progress-indicators div {
-    height: 10px;
-    width: 10px;
-    background-color: #bbb;
+    height: 15px;
+    width: 15px;
+    background-color: #dddddd;
     border-radius: 50%;
     display: inline-block;
     margin: 0 5px;
 }
 
 .progress-indicators div.active {
-    background-color: #4CAF50;
+    background-color: #b6b6b6;
 }
 
 /* Fade-in animation */
@@ -139,6 +148,8 @@ body {
     display: none;
     opacity: 0;
 }
+
+
 
 /* When the stage has the 'active' class, it fades in */
 #stage1.active, #stage2.active, #stage3.active, #stage4.active {
