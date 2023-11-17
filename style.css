@@ -28,6 +28,7 @@ body {
     margin-bottom: 5px;
 }
 
+
 .form-container input[type="text"],
 .form-container input[type="email"],
 .form-container input[type="date"] {
@@ -139,20 +140,51 @@ body {
     to { opacity: 1; }
 }
 
-/* Apply the animation to each stage of the form */
-#stage1, #stage2, #stage3, #stage4 {
+/* Apply the fade-in animation to each form stage, loading container, and thank you stage */
+#stage1, #stage2, #stage3, #stage4, #loadingAnimation, #thankYouStage {
     animation: fadeIn 0.7s ease-in-out;
 }
-/* Initially hide the stages */
-#stage1, #stage2, #stage3, #stage4  {
+
+/* Initially hide the stages, loading container, and thank you stage */
+#stage1, #stage2, #stage3, #stage4, #loadingAnimation, #thankYouStage {
     display: none;
     opacity: 0;
 }
 
-
-
-/* When the stage has the 'active' class, it fades in */
-#stage1.active, #stage2.active, #stage3.active, #stage4.active {
+/* When the element has the 'active' class, it fades in */
+#stage1.active, #stage2.active, #stage3.active, #stage4.active, #loadingAnimation.active, #thankYouStage.active {
     display: block;
     opacity: 1;
+}
+
+/* Initially hide the loader */
+#loadingAnimation {
+    display: none;
+    opacity: 0;
+}
+
+/* When loader has the 'active' class, it fades in */
+#loadingAnimation.active {
+    display: flex; /* Flex to center the loader */
+    opacity: 1;
+}
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* Adjust as necessary */
+}
+
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #36bb8a;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

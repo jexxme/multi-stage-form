@@ -30,13 +30,27 @@ function goToStage4() {
     document.getElementById('stage4').classList.add('active');
     updateProgressIndicator(3);
 }
-
-
 function finishForm() {
-    alert('Form Submitted!');
-    // Add form submission logic here
-    // Optionally, update the progress indicator to reflect form submission
+    // Hide all stages and buttons
+    document.querySelectorAll('.form-stage').forEach(stage => stage.classList.remove('active'));
+    document.querySelector('.button-container').style.display = 'none';
+
+    // Show the loading animation
+    const loadingAnimation = document.getElementById('loadingAnimation');
+    loadingAnimation.classList.add('active');
+
+    // Simulate a 2-second submission process
+    setTimeout(() => {
+        // Hide the loading animation
+        loadingAnimation.classList.remove('active');
+
+        // Show the Thank You stage
+        const thankYouStage = document.getElementById('thankYouStage');
+        thankYouStage.classList.add('active');
+    }, 2000);
 }
+
+
 
 function updateProgressIndicator(stage) {
     const indicators = document.querySelectorAll('.progress-indicators div');
